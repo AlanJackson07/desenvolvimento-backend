@@ -61,29 +61,3 @@ GET /produtos
 POST /usuarios
 POST /auth/login
 DELETE /usuarios/1
-
-'''Json
-{
-  "nome": "Alan",
-  "email": "alan@email.com"
-}
-
-
-Usuário → Frontend → Backend → Banco → Backend → Frontend
-
-const http = require('http');
-
-const server = http.createServer((req, res) => {
-  if (req.url === '/ola' && req.method === 'GET') {
-    res.writeHead(200, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify({ mensagem: 'Olá mundo!' }));
-    return;
-  }
-
-  res.writeHead(404);
-  res.end('Rota não encontrada');
-});
-
-server.listen(3000, () => {
-  console.log('Servidor rodando em http://localhost:3000');
-});
